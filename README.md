@@ -1,70 +1,77 @@
-# Getting Started with Create React App
+# Personal expenses management
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Application overview
 
-## Available Scripts
+Personal expenses management web client application (static files) that allows users to track how much money have they 
+spent. Application must be written on React with Redux.
 
-In the project directory, you can run:
+### Running
 
-### `npm start`
+```
+npm install
+npm start
+```
+or
+```
+yarn install
+yarn start
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Requirements
+As a result of test problem solution you should provide a web application where user can enter a command and see the 
+results of its execution.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+List of supported commands:
+- `add 2017-04-25 12 USD Jogurt` ​​— ​adds expense entry to the list of user expenses. Expenses for various dates could be 
+added in any order. Command accepts following parameters:
+    - `2017-04-25` ​— i​s the date when expense occurred, 
+    - `12` ​— i​s an amount of money spent,
+    - `USD` ​— the currency in which expense occurred,
+    - `Jogurt` ​— i​s the name of product purchased.
+    
+- `list` ​—​ ​shows the list of all expenses sorted by date
 
-### `npm test`
+- `clear 2017-04-25` ​​— r​emoves all expenses for specified date, where:
+    - `2017-04-25` ​— i​s the date for which all expenses should be removed
+    
+- `total PLN` ​—​ t​his command should take a list of exchange rates from ​http://fixer.io,​ calculate the total amount of 
+money spent and present it to user in specified currency, where:
+    - `PLN` —​ i​s the currency in which total amount of expenses should be presented 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+In order to get extra points for test problem solution you might cover your source code with unit tests.
 
-### `npm run build`
+### Application usage example
+Here is an example of normal application usage flow, for each command a corresponding output is shown:
+```
+> add 2017-04-25 2 USD Jogurt
+2017-04-25 Jogurt 2 USD
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+> add 2017-04-25 3 EUR "French fries"
+2017-04-25 Jogurt 2 USD 
+           French Fries 3 EUR
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+> add 2017-04-27 4.75 EUR Beer
+2017-04-25 Jogurt 2 USD 
+           French Fries 3 EUR
+2017-04-27 Beer 4.75 EUR
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+> add 2017-04-26 2.5 PLN Sweets
+2017-04-25 Jogurt 2 USD 
+           French Fries 3 EUR
+2017-04-26 Sweets 2.5 PLN
+2017-04-27 Beer 4.75 EUR
 
-### `npm run eject`
+> list
+2017-04-25 Jogurt 2 USD 
+           French Fries 3 EUR
+2017-04-26 Sweets 2.5 PLN
+2017-04-27 Beer 4.75 EUR
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+> clear 2017-04-27
+2017-04-25 Jogurt 2 USD 
+           French Fries 3 EUR
+2017-04-26 Sweets 2.5 PLN
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+> total EUR
+5.42 EUR
+```
