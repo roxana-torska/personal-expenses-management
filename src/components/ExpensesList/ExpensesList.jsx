@@ -1,16 +1,23 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import ExpensesListItem from '../ExpensesListItem';
 
-const ExpensesList = () => {
+function ExpensesList({ expenses }) {
   return (
     <section className="expenses-list">
       <ul className="list-group list-group-flush">
-        <ExpensesListItem />
-        <ExpensesListItem />
-        <ExpensesListItem />
+        {expenses.map(({ id, ...expense }) => {
+          return <ExpensesListItem key={id} expense={expense} />;
+        })}
       </ul>
     </section>
   );
+}
+
+const mapStateToProps = ({ expenses }) => {
+  return {
+    expenses,
+  };
 };
 
-export default ExpensesList;
+export default connect(mapStateToProps)(ExpensesList);
