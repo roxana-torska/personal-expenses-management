@@ -1,0 +1,41 @@
+body {
+  background-color: #0d1117;
+}
+
+.input-group > .styled-form {
+  background-color: #112034;
+  color: #bfc9d1;
+}
+
+.form-control,
+.form-control:focus {
+  border: 1px solid #6e859c;
+  background-color: #112034;
+  color: #bfc9d1;
+}
+
+input::placeholder {
+  color: #bfc9d1;
+}
+
+.list-group {
+  border-radius: 0.25rem;
+}
+
+.expenses-list-item {
+  background-color: #112034;
+  color: #bfc9d1;
+}
+
+.btn-primary {
+  background-color: #1c4274;
+  color: #bfc9d1;
+}
+.total {
+  background-color: #112034;
+  color: #bfc9d1;
+  padding: 10px 20px 10px 10px;
+  border-radius: 0.25rem;
+  font-size: 1.2rem;
+  text-align: right;
+}

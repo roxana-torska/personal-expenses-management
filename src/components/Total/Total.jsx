@@ -6,7 +6,7 @@ const Total = ({ total, isLoading }) => {
   if (!total) return null;
 
   return (
-    <div className="total">
+    <div className="total mt-5">
       <span>Total: {total}</span>
     </div>
   );

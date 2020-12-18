@@ -3,23 +3,24 @@ import CommandBar from '../CommandBar';
 import ExpensesList from '../ExpensesList';
 import Total from '../Total';
 import ErrorMessage from '../ErrorMessage';
+import './App.css';
 
 const App = () => {
   return (
     <div className="container pt-5 pb-5">
-      <div className="app__command-bar mb-3">
+      <div className="mb-3">
         <CommandBar />
       </div>
 
-      <div className="app__expenses-list">
+      <div>
         <ExpensesList />
       </div>
 
-      <div className="app__total">
+      <div>
         <Total />
       </div>
 
-      <div className="app__error">
+      <div>
         <ErrorMessage />
       </div>
     </div>
