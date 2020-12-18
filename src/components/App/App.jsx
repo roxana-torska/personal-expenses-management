@@ -1,6 +1,8 @@
 import React from 'react';
 import CommandBar from '../CommandBar';
 import ExpensesList from '../ExpensesList';
+import Total from '../Total';
+import ErrorMessage from '../ErrorMessage';
 
 const App = () => {
   return (
@@ -11,6 +13,14 @@ const App = () => {
 
       <div className="app__expenses-list">
         <ExpensesList />
+      </div>
+
+      <div className="app__total">
+        <Total />
+      </div>
+
+      <div className="app__error">
+        <ErrorMessage />
       </div>
     </div>
   );
